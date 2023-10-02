@@ -13,8 +13,8 @@ p.forEach((v) => {
             e.target.classList.add("inUse");
             swapXOC("TURN");
             swapXOC("BLOCK");
+            verifWin();
         }
-        console.log(verifWin());
     });
 });
 

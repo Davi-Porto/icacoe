@@ -95,6 +95,8 @@ section .btnArea{
 }
 
 section  .content{
+    overflow: hidden;
+    position: relative;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: 1fr 1fr 1fr;
@@ -157,4 +159,16 @@ button.active-i{
 
 .b{
     border-bottom: 3px solid var(--contraste);
+}
+
+#msgModal{
+    display: none;
+    color: var(--destaque);
+}
+
+canvas {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: none;
 }

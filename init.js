@@ -7,6 +7,35 @@ const moons = window.document.querySelectorAll(".fa-moon");
 const suns = window.document.querySelectorAll(".fa-sun");
 var iconACT = window.document.querySelector(".xoc.active-i").id;
 var win = [[0,1,2], [3,4,5], [6,7,8], [0,3,6], [1,4,7], [2,5,8], [0,4,8], [2,4,6]];
+var winLine = [];
+const modalMsg = window.document.querySelector("#msgModal");
+const msgBox = Msg.factory({
+    show_delay: 1000,
+    window_width: "50%",
+    window_height: "50%",
+    window_max_width: "1350px",
+    window_min_width: "250px",
+    autoclose: true,
+    autoclose_delay: 2500,
+    close_effect: "fade",
+    enable_progressbar: true,
+    before_close: function(){
+        reload.dispatchEvent(clickEvent);
+        modalMsg.style.display="none";
+    },
+    before_show: function(){
+        msgBox.window.style.background = "var(--primaria)";
+        msgBox.window.style.borderRadius = "10px";
+        msgBox.window.style.overflow = "hidden";
+        console.log(msgBox.window);
+        msgBox.window.querySelector(".Msg-content").style.display="flex";
+        msgBox.window.querySelector(".Msg-content").style.height = "100%";
+        msgBox.window.querySelector(".Msg-content").style.alignItems = "center";
+        msgBox.window.querySelector(".Msg-content").style.justifyContent = "center";
+        modalMsg.style.display = "block";
+    }
+});
+const clickEvent = new Event('click');
 
 if(themeStart==null){
     localStorage.setItem('theme-color', 'light');
@@ -29,33 +58,56 @@ function verif(target){
 
 function verifWin(){
     let acc=0;
+    let ic;
     win.forEach((lines)=>{
-        let ic=0;
-        lines.forEach((box, i)=>{
-            if(i==0 && p[box].children.item(0).classList.contains('fa-circle')){
-                ic=1;
-            }
-            if(p[box].children.item(0)){
-                if(ic==0){
-                    if(p[box].children.item(0).classList.contains('fa-x')){
-                        acc++;
-                    }else{
-                        acc--;
+        if(acc!=3){
+            ic=0;
+            lines.forEach((box, i)=>{
+                if(p[box].children.item(0)){
+                    if(i==0 && p[box].children.item(0).classList.contains('fa-circle')){
+                        ic=1;
                     }
-                }else{
-                    if(p[box].children.item(0).classList.contains('fa-circle')){
-                        acc++;
+                    if(ic==0){
+                        if(p[box].children.item(0).classList.contains('fa-x')){
+                            acc++;
+                        }else{
+                            acc--;
+                        }
                     }else{
-                        acc--;
+                        if(p[box].children.item(0).classList.contains('fa-circle')){
+                            acc++;
+                        }else{
+                            acc--;
+                        }
                     }
                 }
+            });
+            if(acc<3){
+                acc=0;
+            }
+        }
+    });
+    if(acc==3){
+        if(ic==0){
+            modalMsg.querySelector("h1").innerHTML='<i class="fa-solid fa-x faIcon"></i>';
+        }else if(ic==1){
+            modalMsg.querySelector("h1").innerHTML='<i class="fa-regular fa-circle faIcon"></i>';
+        }
+        modalMsg.querySelector("h1").innerHTML+=" Ganhou!!";
+        msgBox.show(modalMsg);
+        swapXOC("ALLOW");
+    }else{
+        acc=0;
+        p.forEach((v)=>{
+            if(v.children.item(0)){
+                acc++;
             }
         });
-    })
-    if(acc==3){
-        return "win";
-    }else{
-        return "none";
+        if(acc==9){
+            modalMsg.querySelector("h1").innerHTML='Velha!';
+            msgBox.show(modalMsg);
+            swapXOC("ALLOW");
+        }
     }
 }
 
