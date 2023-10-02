@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript #01</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        i.none{
+            display: none;
+        }
+    </style>
+    <script src="https://kit.fontawesome.com/373151a956.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <header>
+        <div>
+            <i class="fa-regular fa-moon"></i>
+            <i class="fa-solid fa-moon none"></i>
+            <label for="theme-change-btn">
+                <input type="checkbox" id="theme-change-btn" checked>
+                <span></span>
+            </label>
+            <i class="fa-regular fa-sun none"></i>
+            <i class="fa-solid fa-sun"></i>
+        </div>
+    </header>
+    <main>
+        <section>
+            <div class="btnArea">
+                <div>
+                    <button class="act xoc active-i" id="X">
+                        <i class="fa-solid fa-x faIcon"></i>
+                    </button>
+                    <button class="act xoc" id="O">
+                        <i class="fa-regular fa-circle faIcon"></i>
+                    </button>
+                </div>
+                <div>
+                    <button class="act" style="opacity:1;" id="reload">
+                        <i class="fa-solid fa-rotate-right faIcon"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="content">
+                <div class="p r b"></div>
+                <div class="p r b"></div>
+                <div class="p b"></div>
+                <div class="p r b"></div>
+                <div class="p r b"></div>
+                <div class="p b"></div>
+                <div class="p r"></div>
+                <div class="p r"></div>
+                <div class="p"></div>
+            </div>
+        </section>
+    </main>
+    <script src="init.js"></script>
+    <script src="main.js" defer></script>
+</body>
+</html>
