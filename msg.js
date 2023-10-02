@@ -1,5 +1,3 @@
-/* Msg v11.4.12 https://github.com/Merkoba/Msg */
-
 const Msg = {}
 
 Msg.factory = function (options = {}) {
