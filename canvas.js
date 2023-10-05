@@ -6,7 +6,6 @@ var request;
 
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
-console.log(ctx);
 
 ctx.shadowBlur = 25;
 ctx.shadowColor = "rgba(0, 0, 0, 1)";

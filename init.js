@@ -43,10 +43,8 @@ if(themeStart==null){
     localStorage.setItem('theme-color', 'light');
 }else{
     themeChange.checked = themeStart === 'light';
-    if(!themeChange.checked){
-        swapTheme(false);
-    }
 }
+swapTheme(false);
 
 function verif(target){
     let r=false;
