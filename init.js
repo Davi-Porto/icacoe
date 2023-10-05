@@ -7,10 +7,9 @@ const moons = window.document.querySelectorAll(".fa-moon");
 const suns = window.document.querySelectorAll(".fa-sun");
 var iconACT = window.document.querySelector(".xoc.active-i").id;
 var win = [[0,1,2], [3,4,5], [6,7,8], [0,3,6], [1,4,7], [2,5,8], [0,4,8], [2,4,6]];
-var winLine = [];
 const modalMsg = window.document.querySelector("#msgModal");
 const msgBox = Msg.factory({
-    show_delay: 0,
+    show_delay: 1500,
     window_width: "50%",
     window_height: "50%",
     window_max_width: "1350px",
@@ -24,10 +23,13 @@ const msgBox = Msg.factory({
         modalMsg.style.display="none";
     },
     before_show: function(){
+        canvas.style.display="none";
+        cancelAnimationFrame(request);
+        line=undefined;
+        roundLines=[];
         msgBox.window.style.background = "var(--primaria)";
         msgBox.window.style.borderRadius = "10px";
         msgBox.window.style.overflow = "hidden";
-        console.log(msgBox.window);
         msgBox.window.querySelector(".Msg-content").style.display="flex";
         msgBox.window.querySelector(".Msg-content").style.height = "100%";
         msgBox.window.querySelector(".Msg-content").style.alignItems = "center";
@@ -84,6 +86,8 @@ function verifWin(){
             });
             if(acc<3){
                 acc=0;
+            }else{
+                drawLine(lines[0], lines[2], document.documentElement.style.getPropertyValue('--destaque'));
             }
         }
     });
@@ -104,7 +108,7 @@ function verifWin(){
             }
         });
         if(acc==9){
-            modalMsg.querySelector("h1").innerHTML='Velha!';
+            modalMsg.querySelector("h1").innerHTML='Deu velha :(';
             msgBox.show(modalMsg);
             swapXOC("ALLOW");
         }
