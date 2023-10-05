@@ -4,8 +4,14 @@ var line=undefined;
 var roundLines=[];
 var request;
 
-canvas.width = window.innerWidth;
-canvas.height = window.innerHeight;
+window.addEventListener('DOMContentLoaded', ()=>{
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+});
+window.addEventListener('resize', ()=>{
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+})
 
 ctx.shadowBlur = 25;
 ctx.shadowColor = "rgba(0, 0, 0, 1)";
