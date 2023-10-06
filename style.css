@@ -87,6 +87,7 @@ section{
     justify-content: center;
     gap: 25px;
     height: calc(100vh - 85px);
+    min-height: 266px;
 }
 
 section .btnArea{
@@ -95,7 +96,9 @@ section .btnArea{
     width: 100%;
 }
 
-section  .content{
+section .content{
+    min-height: 210px;
+    min-width: 210px;
     overflow: hidden;
     position: relative;
     display: grid;
