@@ -34,7 +34,9 @@ const msgBox = Msg.factory({
         msgBox.window.querySelector(".Msg-content").style.height = "100%";
         msgBox.window.querySelector(".Msg-content").style.alignItems = "center";
         msgBox.window.querySelector(".Msg-content").style.justifyContent = "center";
-        modalMsg.style.display = "block";
+    },
+    after_show: function(){
+        modalMsg.style.display = "inline-block";
     }
 });
 const clickEvent = new Event('click');

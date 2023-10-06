@@ -1,17 +1,29 @@
 const canvas = window.document.getElementById("canvas1");
 const ctx = canvas.getContext("2d");
+const content = window.document.querySelector('.content');
+const cords = [
+    [30, 30],
+    [90, 30],
+    [150,30],
+    [30,90],
+    [90,90],
+    [150,90],
+    [30, 150],
+    [90, 150],
+    [150, 150]
+];
 var line=undefined;
 var roundLines=[];
 var request;
 
 window.addEventListener('DOMContentLoaded', ()=>{
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
+    canvas.width = content.clientWidth-30;
+    canvas.height = content.clientHeight-30;
 });
 window.addEventListener('resize', ()=>{
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-})
+    canvas.width = content.clientWidth-30;
+    canvas.height = content.clientHeight-30;
+});
 
 ctx.shadowBlur = 25;
 ctx.shadowColor = "rgba(0, 0, 0, 1)";
@@ -22,24 +34,13 @@ function drawLine(i, i2, clr){
     animaLine();
     canvas.style.display="block";
     let start={
-        x: undefined,
-        y: undefined,
+        x: cords[i][0],
+        y: cords[i][1],
     };
     let end={
-        x: undefined,
-        y: undefined,
+        x: cords[i2][0],
+        y: cords[i2][1],
     };
-    p.forEach((v, j)=>{
-        let cordenates=v.getBoundingClientRect()
-        if(j==i){
-            start.x=cordenates.x+v.clientWidth/2;
-            start.y=cordenates.y+v.clientHeight/2;
-        }
-        if(j==i2){
-            end.x=cordenates.x+v.clientWidth/2;
-            end.y=cordenates.y+v.clientHeight/2;
-        }
-    })
     line=new LineObject(start.x, start.y, end.x, end.y, clr);
 }
 

@@ -77,7 +77,7 @@ header label input:checked + span{
 
 main{
     margin-top: 65px;
-    padding: 30px;
+    padding: 10px;
 }
 
 section{
@@ -86,6 +86,7 @@ section{
     align-items: center;
     justify-content: center;
     gap: 25px;
+    height: calc(100vh - 85px);
 }
 
 section .btnArea{
@@ -95,10 +96,12 @@ section .btnArea{
 }
 
 section  .content{
+    overflow: hidden;
+    position: relative;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: 1fr 1fr 1fr;
-    padding: 30px;
+    padding: 15px;
     border: 1px solid gray;
     border-radius: 10px;
     box-shadow: 0 0 10px var(--contraste),
@@ -160,12 +163,15 @@ button.active-i{
 }
 
 #msgModal{
+    position: absolute;
     display: none;
     color: var(--destaque);
 }
 
 canvas {
     position: absolute;
+    top: 15px;
+    left: 15px;
     background: transparent;
     display: none;
 }
