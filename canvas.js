@@ -1,16 +1,17 @@
 const canvas = window.document.getElementById("canvas1");
 const ctx = canvas.getContext("2d");
 const content = window.document.querySelector('.content');
+const pSize = document.querySelectorAll(".p")[0].clientWidth+3;
 const cords = [
-    [35, 35],
-    [90, 35],
-    [175,35],
-    [35,105],
-    [105,105],
-    [175,105],
-    [35, 175],
-    [105, 175],
-    [175, 175]
+    [Math.floor(pSize*0.5), Math.floor(pSize*0.5)],
+    [Math.floor(pSize*1.5), Math.floor(pSize*0.5)],
+    [Math.floor(pSize*2.5), Math.floor(pSize*0.5)],
+    [Math.floor(pSize*0.5), Math.floor(pSize*1.5)],
+    [Math.floor(pSize*1.5), Math.floor(pSize*1.5)],
+    [Math.floor(pSize*2.5), Math.floor(pSize*1.5)],
+    [Math.floor(pSize*0.5), Math.floor(pSize*2.5)],
+    [Math.floor(pSize*1.5), Math.floor(pSize*2.5)],
+    [Math.floor(pSize*2.5), Math.floor(pSize*2.5)]
 ];
 var line=undefined;
 var roundLines=[];
@@ -93,6 +94,7 @@ class LineObject{
         ctx.stroke();
         if(this.x2==this.xTo&&this.y2==this.yTo&&roundLines.length==1){
             roundLines.push(new RoundLine(this.x2, this.y2, this.lineW/2-1, this.ang+180, this.clr));
+            msgBox.show(modalMsg);
         }
     }
 }

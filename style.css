@@ -77,6 +77,8 @@ header label input:checked + span{
 main{
     margin-top: 65px;
     padding: 10px;
+    width: 100%;
+    height: calc(100% - 65px);
 }
 
 section{
@@ -86,18 +88,21 @@ section{
     justify-content: center;
     gap: 25px;
     height: calc(100vh - 85px);
+    width: 100%;
     min-height: 316px;
 }
 
 section .btnArea{
     display: flex;
     justify-content: space-between;
-    width: 100%;
+    width: 80%;
+    max-width: 350px;
 }
 
 section .content{
-    height: 240px;
-    width: 240px;
+    width: 80%;
+    max-width: 350px;
+    aspect-ratio: 1/1;
     overflow: hidden;
     position: relative;
     display: grid;
@@ -111,7 +116,8 @@ section .content{
 }
 
 button{
-    padding: 8px 16px;
+    font-size: 20px;
+    padding: 10px 30px;
     border-radius: 10px;
     cursor: not-allowed;
     border: none;
@@ -142,13 +148,12 @@ button.active-i{
 }
 
 .p{
-    width: 70px;
-    height: 70px;
+    aspect-ratio: 1/1;
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    font-size: 2em;
+    font-size: 2.5em;
     color: var(--contraste);
 }
 
