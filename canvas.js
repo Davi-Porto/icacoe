@@ -2,15 +2,15 @@ const canvas = window.document.getElementById("canvas1");
 const ctx = canvas.getContext("2d");
 const content = window.document.querySelector('.content');
 const cords = [
-    [30, 30],
-    [90, 30],
-    [150,30],
-    [30,90],
-    [90,90],
-    [150,90],
-    [30, 150],
-    [90, 150],
-    [150, 150]
+    [35, 35],
+    [90, 35],
+    [175,35],
+    [35,105],
+    [105,105],
+    [175,105],
+    [35, 175],
+    [105, 175],
+    [175, 175]
 ];
 var line=undefined;
 var roundLines=[];

@@ -31,7 +31,6 @@ header{
     top: 0;
     left: 0;
     background: var(--contraste-leve);
-    opacity: 0.7;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -87,7 +86,7 @@ section{
     justify-content: center;
     gap: 25px;
     height: calc(100vh - 85px);
-    min-height: 266px;
+    min-height: 316px;
 }
 
 section .btnArea{
@@ -97,8 +96,8 @@ section .btnArea{
 }
 
 section .content{
-    min-height: 210px;
-    min-width: 210px;
+    height: 240px;
+    width: 240px;
     overflow: hidden;
     position: relative;
     display: grid;
@@ -143,8 +142,8 @@ button.active-i{
 }
 
 .p{
-    width: 60px;
-    height: 60px;
+    width: 70px;
+    height: 70px;
     display: flex;
     align-items: center;
     justify-content: center;
