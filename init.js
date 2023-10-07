@@ -9,7 +9,7 @@ var iconACT = window.document.querySelector(".xoc.active-i").id;
 var win = [[0,1,2], [3,4,5], [6,7,8], [0,3,6], [1,4,7], [2,5,8], [0,4,8], [2,4,6]];
 const modalMsg = window.document.querySelector("#msgModal");
 const msgBox = Msg.factory({
-    show_delay: 150,
+    show_delay: 500,
     window_width: "50%",
     window_height: "50%",
     window_max_width: "1350px",
